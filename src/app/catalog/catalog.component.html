@@ -15,12 +15,18 @@
     bind-propiedadDelComponente="valorDesdeElDOM"
     -->
     <mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">
-      <mat-grid-tile *ngFor="let item of items"
-                     [routerLink]="['/itemdetail', item.id]">
+      <mat-grid-tile *ngFor="let item of items">
         <img height="200px" data-src="data:image/png;base64,{{item.image}}"
-             alt={{item.name}}>
+             alt={{item.name}} [routerLink]="['/itemdetail', item.id]">
         <mat-grid-tile-footer>
-          <h1 mat-line>{{item.name | uppercase}}</h1>
+          <h1 mat-line [routerLink]="['/itemdetail', item.id]">{{item.name | uppercase}}</h1>
+          <mat-form-field>
+            <mat-select [(value)]="item.itemInstanceStateDto.id" (selectionChange)="itemStateChanged(item)">
+              <mat-option *ngFor="let itemState of itemStates" [value]="itemState.id">
+                {{itemState.state}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>
