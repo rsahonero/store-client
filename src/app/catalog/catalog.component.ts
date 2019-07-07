@@ -21,7 +21,8 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemService.getItems().subscribe(items => {
+    const filter = `state=${this.state}`;
+    this.itemService.getFilteredItems(filter).subscribe(items => {
       this.items = items;
       console.log(items);
     });
