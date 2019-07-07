@@ -22,8 +22,13 @@
           <button mat-button [routerLink]="['/itemdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span>
           </button>
           <button mat-button (click)="goBack()">BACK</button>
-          <button mat-button (click)="onAction($event)">LIKE</button>
-          <button mat-button (click)="onAction($event)">SHARE</button>
+          <fb-like 
+            href="https://github.com/zyra/ngx-facebook" 
+            data-size="large" 
+            data-show-faces="false" 
+            data-layout="button"
+            data-share="false"></fb-like>
+          <button mat-button (click)="openShareDialog()">SHARE</button>
           <span class="flex-spacer"></span>
           <button mat-button [routerLink]="['/itemdetail', next]"><span class="fa fa-chevron-right fa-lg"></span>
           </button>

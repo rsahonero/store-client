@@ -48,6 +48,8 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {baseURL} from './shared/baseurl';
 import {HttpClientModule} from '@angular/common/http';
+import { FacebookModule } from 'ngx-facebook';
+import { ShareDialog } from './share-dialog/share-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import {HttpClientModule} from '@angular/common/http';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    ShareDialog
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
@@ -68,13 +71,15 @@ import {HttpClientModule} from '@angular/common/http';
     MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule,
     MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule,
     MatTabsModule, MatToolbarModule, MatTooltipModule,
-    FlexLayoutModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    FlexLayoutModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule,
+    FacebookModule.forRoot()
   ],
   providers: [
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    ShareDialog
   ],
   bootstrap: [AppComponent]
 })
