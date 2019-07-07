@@ -13,22 +13,34 @@
             <h3>{{item.name | uppercase}}</h3>
           </mat-card-title>
         </mat-card-title-group>
-        <img matCardImage data-src="data:image/png;base64,{{item.image}}" alt={{item.name}}>
+        <ng-container *ngIf="item.imageList && item.imageList[0]">
+          <img matCardImage data-src="data:image/png;base64,{{item.imageList[0].image}}" alt={{item.name}}>
+        </ng-container>
+        <ng-container *ngIf="item.imageList && !item.imageList[0]">
+          <img matCardImage
+               src='https://image.shutterstock.com/image-vector/no-image-available-icon-photo-260nw-1251146734.jpg'>
+        </ng-container>
         <mat-card-content>
           <p>{{item.description}}
           </p>
         </mat-card-content>
         <mat-card-actions align="start">
+          <div><label>Upload a image: </label><input type="file" [(ngModel)]="image"
+                                                     (change)="validateImage($event)"><br>
+            <button mat-raised-button color="primary" (click)="uploadImage(item)" [disabled]="!activeButton">Upload
+            </button>
+          </div>
           <button mat-button [routerLink]="['/itemdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span>
           </button>
           <button mat-button (click)="goBack()">BACK</button>
           <fb-like 
-            href="https://github.com/zyra/ngx-facebook" 
-            data-size="large" 
-            data-show-faces="false" 
-            data-layout="button"
-            data-share="false"></fb-like>
+          href="https://github.com/zyra/ngx-facebook" 
+          data-size="large" 
+          data-show-faces="false" 
+          data-layout="button"
+          data-share="false"></fb-like>
           <button mat-button (click)="openShareDialog()">SHARE</button>
+          <button mat-button (click)="showGallery()">Gallery</button>
           <span class="flex-spacer"></span>
           <button mat-button [routerLink]="['/itemdetail', next]"><span class="fa fa-chevron-right fa-lg"></span>
           </button>

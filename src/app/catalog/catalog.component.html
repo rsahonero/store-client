@@ -16,8 +16,13 @@
     -->
     <mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">
       <mat-grid-tile *ngFor="let item of items">
-        <img height="200px" data-src="data:image/png;base64,{{item.image}}"
-             alt={{item.name}} [routerLink]="['/itemdetail', item.id]">
+        <ng-container *ngIf="item.imageList && item.imageList[0]">
+          <img height="200px" data-src="data:image/png;base64,{{item.imageList[0].image}}" alt={{item.name}} [routerLink]="['/itemdetail', item.id]">
+        </ng-container>
+        <ng-container *ngIf="item.imageList && !item.imageList[0]">
+          <img height="200px" alt={{item.name}} [routerLink]="['/itemdetail', item.id]"
+            src='https://image.shutterstock.com/image-vector/no-image-available-icon-photo-260nw-1251146734.jpg'>
+        </ng-container>
         <mat-grid-tile-footer>
           <h1 mat-line [routerLink]="['/itemdetail', item.id]">{{item.name | uppercase}}</h1>
           <mat-form-field>

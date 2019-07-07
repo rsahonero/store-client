@@ -1,0 +1,33 @@
+.ngx-gallery-thumbnail.ngx-gallery-active {
+    /* your styles */
+  }
+  
+  ngx-gallery .ngx-gallery-arrow {
+    /* your styles */
+    color: black;
+  }
+  
+  ngx-gallery ngx-gallery-image .ngx-gallery-arrow {
+    /* your styles */
+  }
+  
+  ngx-gallery ngx-gallery-thumbnails .ngx-gallery-arrow {
+    /* your styles */
+  }
+  
+  ngx-gallery ngx-gallery-preview .ngx-gallery-arrow {
+    /* your styles */
+  }
+  
+  :host {
+    [close], [delete] {
+      color: #999;
+      cursor: pointer;
+      //position: absolute;
+      right: 1em;
+      z-index: 10;
+      &:hover {
+        color: #000;
+      }
+    }
+  }

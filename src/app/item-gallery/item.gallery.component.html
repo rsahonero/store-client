@@ -1,0 +1,8 @@
+<ng-container title>
+    <mat-icon close (click)="hide()">close</mat-icon>
+</ng-container>
+<ng-container title>
+    <mat-icon delete (click)="deleteImage()">delete</mat-icon>
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (change)="changeEvent($event)">
+    </ngx-gallery>
+</ng-container>

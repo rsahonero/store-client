@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MAT_DIALOG_DATA,
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -50,6 +51,8 @@ import {baseURL} from './shared/baseurl';
 import {HttpClientModule} from '@angular/common/http';
 import { FacebookModule } from 'ngx-facebook';
 import { ShareDialog } from './share-dialog/share-dialog.component';
+import { ItemGalleryComponent } from './item-gallery/item.gallery.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,8 @@ import { ShareDialog } from './share-dialog/share-dialog.component';
     HomeComponent,
     ContactComponent,
     LoginComponent,
-    ShareDialog
+    ShareDialog,
+    ItemGalleryComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
@@ -72,14 +76,15 @@ import { ShareDialog } from './share-dialog/share-dialog.component';
     MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule,
     MatTabsModule, MatToolbarModule, MatTooltipModule,
     FlexLayoutModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(), NgxGalleryModule
   ],
   providers: [
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent,
-    ShareDialog
+    ShareDialog,
+    ItemGalleryComponent
   ],
   bootstrap: [AppComponent]
 })
