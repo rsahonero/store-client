@@ -59,4 +59,8 @@ export class ItemService {
     const url = `${baseURL}` + 'item-image/' + id;
     return this.http.delete(url);
   }
+
+  getFilteredItems(filter: string): Observable<Item[]> {
+    return this.http.get(baseURL + `iteminstances/query?${filter}`) as Observable<Item[]>;
+  }
 }

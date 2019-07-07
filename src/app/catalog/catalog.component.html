@@ -7,6 +7,30 @@
       <h3>Catalogo</h3>
       <hr>
     </div>
+    <div style="display:flex; align-items:baseline; justify-content:space-around">
+      <mat-form-field appearance="standard">
+        <mat-label>Categoria</mat-label>
+        <input matInput [(ngModel)]="category">
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Marca</mat-label>
+        <input matInput [(ngModel)]="brand">
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Potencia</mat-label>
+        <input matInput [(ngModel)]="power">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="state">
+          <mat-option value="1">AVAILABLE</mat-option>
+          <mat-option value="2">SOLD</mat-option>
+          <mat-option value="3">MANTENANCE</mat-option>
+          <mat-option value="4">ON CAMINO</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button (click)="filterItems()">Filtrar</button>
+    </div>
   </div>
 
   <div fxFlex *ngIf="items">
